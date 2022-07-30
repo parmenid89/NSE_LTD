@@ -12,19 +12,15 @@
         }
     }
     &__info > div {
-        height: 150px;
+        height: 200px;
         width: 33%; 
-        display: flex;
-        flex-direction: column;
-        align-items: space-between;
-        justify-content: start;
     }
     &__business {
         text-align: center;
     }
-    &__address b {  
-        display: block;
-        margin: 0 auto;
+    &__address {  
+        text-align: center;
+        margin-top: 10px;
     }
     &__business_list {
         display: flex;

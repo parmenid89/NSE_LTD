@@ -9,7 +9,7 @@ $.prototype.modal = function(created) {
             e.preventDefault();
             $(target).fadeIn(200);
             document.body.style.overflow = 'hidden';
-            document.body.style.paddingRight = `${scroll}px`;
+            document.body.style.marginRight = `${scroll}px`;
         });
 
         const closeElements = document.querySelectorAll(`${target} [data-close]`);
@@ -17,7 +17,7 @@ $.prototype.modal = function(created) {
             $(elem).click(() => {
                 $(target).fadeOut(200);
                 document.body.style.overflow = '';
-                document.body.style.paddingRight = `0px`;
+                document.body.style.marginRight = `0px`;
                 if (created) {
                     document.querySelector(target).remove();
                 }

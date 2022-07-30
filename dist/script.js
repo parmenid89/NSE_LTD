@@ -311,14 +311,14 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.modal = function (create
       e.preventDefault();
       (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).fadeIn(200);
       document.body.style.overflow = 'hidden';
-      document.body.style.paddingRight = `${scroll}px`;
+      document.body.style.marginRight = `${scroll}px`;
     });
     const closeElements = document.querySelectorAll(`${target} [data-close]`);
     closeElements.forEach(elem => {
       (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(elem).click(() => {
         (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).fadeOut(200);
         document.body.style.overflow = '';
-        document.body.style.paddingRight = `0px`;
+        document.body.style.marginRight = `0px`;
 
         if (created) {
           document.querySelector(target).remove();
