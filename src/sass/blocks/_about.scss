@@ -1,0 +1,10 @@
+.about {
+    padding: 40px 0 40px 0;
+    min-height: 700px;
+    &__text {
+        text-align: center;
+        margin-bottom: 25px;
+        line-height: 30px;
+        font-weight: 500;
+    }
+}
