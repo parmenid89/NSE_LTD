@@ -1,4 +1,6 @@
 import $ from './lib/lib';
+import images from './lib/modules/_images';
+import scrolling from './lib/modules/_scrolling';
 
 window.addEventListener('DOMContentLoaded', () => {
     'use strict';
@@ -29,6 +31,9 @@ window.addEventListener('DOMContentLoaded', () => {
             hamburger.classList.remove('hamburger_active');
         }
     });
+
+    images();
+    scrolling('.pageup');
     
 });
 

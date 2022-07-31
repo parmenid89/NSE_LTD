@@ -1,6 +1,8 @@
 @import './libs/bootstrap-reboot.min';
 @import './libs/fonts';
 
+
+
 @import 'base/variables';
 
 html {
@@ -49,5 +51,7 @@ html {
 @import 'blocks/works';
 @import 'blocks/footer';
 @import 'blocks/modal';
+@import 'blocks/pageup';
+@import './libs/animate';
 
 

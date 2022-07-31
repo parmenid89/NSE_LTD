@@ -142,12 +142,12 @@
 	<section id='gallery' class="works">
 		<div class="container">
 			<div class="works__wrapper">
-				<a href="./assets//img/pict1_sm.jpg" class="works__item"><img src="./assets/img/pict1_big.jpg" alt="picture1" class="works__img"></a>
-				<a href="./assets/img/pict2_sm.jpg" class="works__item"><img src="./assets/img/pict2_big.jpg" alt="picture2" class="works__img"></a>
-				<a href="./assets/img/pict3_sm.jpg" class="works__item"><img src="./assets/img/pict3_big.jpg" alt="picture3" class="works__img"></a>
-				<a href="./assets/img/pict4_sm.jpg" class="works__item"><img src="./assets/img/pict4_big.jpg" alt="picture4" class="works__img"></a>
-				<a href="./assets/img/pict5_sm.jpg" class="works__item"><img src="./assets/img/pict5_big.jpg" alt="picture5" class="works__img"></a>
-				<a href="./assets/img/pict6_sm.jpg" class="works__item"><img src="./assets/img/pict6_big.jpg" alt="picture6" class="works__img"></a>
+				<a href="./assets//img/pict1_big.jpg" class="works__item"><img src="./assets/img/pict1_big.jpg" alt="picture1" class="works__img"></a>
+				<a href="./assets/img/pict2_big.jpg" class="works__item"><img src="./assets/img/pict2_big.jpg" alt="picture2" class="works__img"></a>
+				<a href="./assets/img/pict3_big.jpg" class="works__item"><img src="./assets/img/pict3_big.jpg" alt="picture3" class="works__img"></a>
+				<a href="./assets/img/pict4_big.jpg" class="works__item"><img src="./assets/img/pict4_big.jpg" alt="picture4" class="works__img"></a>
+				<a href="./assets/img/pict5_big.jpg" class="works__item"><img src="./assets/img/pict5_big.jpg" alt="picture5" class="works__img"></a>
+				<a href="./assets/img/pict6_big.jpg" class="works__item"><img src="./assets/img/pict6_big.jpg" alt="picture6" class="works__img"></a>
 			</div>
 		</div>
 	</section>
@@ -159,15 +159,18 @@
 		</div>
 	</section>
 
+	<div class="container">
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2963.9223876667775!2d-87.97834065899967!3d42.023397345476866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fb053810e123d%3A0x1df3d20ccaea9d2a!2zMTkxIFN0YW5sZXkgU3QsIEVsayBHcm92ZSBWaWxsYWdlLCBJTCA2MDAwNywg0KHQv9C-0LvRg9GH0LXQvdGWINCo0YLQsNGC0Lgg0JDQvNC10YDQuNC60Lg!5e0!3m2!1suk!2sua!4v1659181266276!5m2!1suk!2sua" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	</div>
+
 	<footer class="footer">
 		<div class="container">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2963.9223876667775!2d-87.97834065899967!3d42.023397345476866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fb053810e123d%3A0x1df3d20ccaea9d2a!2zMTkxIFN0YW5sZXkgU3QsIEVsayBHcm92ZSBWaWxsYWdlLCBJTCA2MDAwNywg0KHQv9C-0LvRg9GH0LXQvdGWINCo0YLQsNGC0Lgg0JDQvNC10YDQuNC60Lg!5e0!3m2!1suk!2sua!4v1659181266276!5m2!1suk!2sua" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 			<div class="footer__info">
 				<div><button class="btn btn__footer" data-toggle="modal" data-target="#exampleModal">Get a quote</button></div>
-				<div class="footer__address"> <b>Address</b> <br> <span>191 Stanley Street
+				<div class="footer__address"> <b>Address</b> <br><br> <span>191 Stanley Street
 					Elk Grove Village, IL 60007 USA<br> Tel: (773) 205-5252</span> 
 					</div>
-				<div class="footer__business"><b>Business Hours</b>
+				<div class="footer__business"><b>Business Hours</b> <br><br>
 					<ul class="footer__business_list">
 						<li clas="mon">
 							<span>Mon:</span> <div>8:00 AM – 5:00 PM</div> 
@@ -194,8 +197,6 @@
 					
 				</div>
 			</div>
-			<br>
-			<br>
 			<hr>
 			<div class="footer__author">
 				<a href="https://www.facebook.com/daniil.postoyuk/" class="footer__link">Powered by Daniil Postoiuk</a> 
@@ -210,26 +211,29 @@
 				<button class="close" data-close>
 					<span>&times;</span>
 				</button>
-				<div class="modal-header">
-					<div class="modal-title">
-						Modal title
+				<div class="modal__header">
+					<div class="modal__title">
+						Left your info and we will call you back
 					</div>
 				</div>
-				<div class="modal-body">
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi reiciendis inventore rerum facilis quidem porro dolorum quis itaque modi alias obcaecati soluta, aliquid voluptas assumenda. Blanditiis tempora dolorem sint harum!
-				</div>
-				<div class="modal-footer">
-					<button class="btn btn-danger" data-close>Close</button>
-					<button class="btn btn-success">Save changes</button>
+				<form class="modal__form" action="#">
+					<input name="name" placeholder="Your name" type="text">
+					<input name="phone" placeholder="Your phone number">
+					<input name="email" placeholder="Your E-mail" type="email">
+
+				 </form>
+				<div class="modal__footer">
+					<button class="btn btn_short" data-close>Close</button>
+					<button class="btn btn_short">Send</button>
 				</div>
 			</div>
         </div>
     </div>
 
-<!-- 
+
 	<a href="#up" class="pageup">
-		<img src="icons/circle-chevron-up-solid.svg" alt="up">
-	</a> -->
+		<img src="./assets/img/circle-arrow-up-solid.svg" alt="up">
+	</a>
 
 
 	<script src="script.js"></script>

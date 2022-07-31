@@ -1,5 +1,8 @@
 .footer {
-    min-height: 630px;
+    // min-height: 630px;
+    background-color: #000;
+    opacity: 0.8;
+    margin-top: 20px;
     iframe {
         margin-bottom: 15px;
     }
@@ -7,6 +10,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding-top: 20px;
         ul {
             list-style: none;
         }
@@ -16,16 +20,21 @@
         width: 33%; 
     }
     &__business {
-        text-align: center;
+        text-align: start;
+        color: #fff;
+        b {
+            padding-left: 30px;
+        }
     }
     &__address {  
-        text-align: center;
         margin-top: 10px;
+        color: #fff;
     }
     &__business_list {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        color: #fff;
         li {
             display: flex;
             justify-content: space-between;

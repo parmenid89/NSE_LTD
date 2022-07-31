@@ -32,15 +32,29 @@
             cursor: pointer;
         }
     }
-    &-header, &-body {
+    &__header, &-body {
         padding: 15px;
         border-bottom: 1px solid #dee2e6;
     }
-    &-title {
+    &__title {
         font-weight: 500;
         font-size: 20px;
+        text-align: center;
     }
-    &-footer {
+    &__footer {
         padding: 15px;
+        display: flex;
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        align-items: center;
+        justify-content: center;
+        input {
+            margin-bottom: 15px;
+            width: 350px;
+            border-radius: 5px;
+        }
     }
 }
