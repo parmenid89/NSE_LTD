@@ -345,7 +345,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.modal = function (created) {
-  let scroll = calcScroll();
+  let marginOffset = window.innerWidth - document.body.offsetWidth + `px`;
+  const pageUp = document.querySelector('.pageup');
 
   for (let i = 0; i < this.length; i++) {
     const target = this[i].getAttribute('data-target');
@@ -353,14 +354,16 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.modal = function (create
       e.preventDefault();
       (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).fadeIn(200);
       document.body.style.overflow = 'hidden';
-      document.body.style.marginRight = `${scroll}px`;
+      document.body.style.paddingRight = marginOffset;
+      pageUp.classList.remove('fadeIn');
     });
     const closeElements = document.querySelectorAll(`${target} [data-close]`);
     closeElements.forEach(elem => {
       (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(elem).click(() => {
         (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).fadeOut(200);
         document.body.style.overflow = '';
-        document.body.style.marginRight = `0px`;
+        document.body.style.paddingRight = `0px`;
+        pageUp.classList.add('fadeIn');
 
         if (created) {
           document.querySelector(target).remove();
@@ -371,26 +374,14 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.modal = function (create
       if (e.target.classList.contains('modal')) {
         (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).fadeOut(200);
         document.body.style.overflow = '';
-        document.body.style.marginRight = `0px`;
+        document.body.style.paddingRight = `0px`;
+        pageUp.classList.add('fadeIn');
 
         if (created) {
           document.querySelector(target).remove();
         }
       }
     });
-  }
-
-  function calcScroll() {
-    /* Функция для расчета ширины скролла */
-    let div = document.createElement('div');
-    div.style.width = '50px';
-    div.style.height = '50px';
-    div.style.overflowY = 'scroll';
-    div.style.visibility = 'hidden';
-    document.body.appendChild(div);
-    let scrollWidth = div.offsetWidth - div.clientWidth;
-    div.remove();
-    return scrollWidth;
   }
 };
 

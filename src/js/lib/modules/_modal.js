@@ -1,7 +1,8 @@
 import $ from '../core';
 
 $.prototype.modal = function(created) {
-    let scroll = calcScroll();
+    let marginOffset = window.innerWidth - document.body.offsetWidth + `px`;
+    const pageUp = document.querySelector('.pageup');
 
     for (let i=0; i < this.length; i++) {
         const target = this[i].getAttribute('data-target');
@@ -9,7 +10,8 @@ $.prototype.modal = function(created) {
             e.preventDefault();
             $(target).fadeIn(200);
             document.body.style.overflow = 'hidden';
-            document.body.style.marginRight = `${scroll}px`;
+            document.body.style.paddingRight = marginOffset;
+            pageUp.classList.remove('fadeIn');
         });
 
         const closeElements = document.querySelectorAll(`${target} [data-close]`);
@@ -17,7 +19,8 @@ $.prototype.modal = function(created) {
             $(elem).click(() => {
                 $(target).fadeOut(200);
                 document.body.style.overflow = '';
-                document.body.style.marginRight = `0px`;
+                document.body.style.paddingRight = `0px`;
+                pageUp.classList.add('fadeIn');
                 if (created) {
                     document.querySelector(target).remove();
                 }
@@ -28,7 +31,8 @@ $.prototype.modal = function(created) {
             if (e.target.classList.contains('modal')) {
                 $(target).fadeOut(200);
                 document.body.style.overflow = '';
-                document.body.style.marginRight = `0px`;
+                document.body.style.paddingRight = `0px`;
+                pageUp.classList.add('fadeIn');
                 if (created) {
                     document.querySelector(target).remove();
                 }
@@ -36,20 +40,6 @@ $.prototype.modal = function(created) {
         });
     }
 
-    function calcScroll() {         /* Функция для расчета ширины скролла */
-        let div = document.createElement('div');
-
-        div.style.width = '50px';
-        div.style.height = '50px';
-        div.style.overflowY = 'scroll';
-        div.style.visibility = 'hidden';
-
-        document.body.appendChild(div);
-        let scrollWidth = div.offsetWidth - div.clientWidth;
-        div.remove();
-
-        return scrollWidth; 
-    }
 };
 
 $('[data-toggle="modal"]').modal();
