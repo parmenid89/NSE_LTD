@@ -1,6 +1,6 @@
 import $ from './lib/lib';
-import images from './lib/modules/_images';
-import scrolling from './lib/modules/_scrolling';
+import images from './modules/_images';
+import scrolling from './modules/_scrolling';
 
 window.addEventListener('DOMContentLoaded', () => {
     'use strict';
@@ -34,6 +34,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     images();
     scrolling('.pageup');
+    $('.carousel').carousel();
     
 });
 

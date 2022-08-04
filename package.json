@@ -31,5 +31,8 @@
     "sass": "^1.51.0",
     "webpack": "^5.74.0",
     "webpack-stream": "^7.0.0"
+  },
+  "dependencies": {
+    "animated": "^0.2.2"
   }
 }

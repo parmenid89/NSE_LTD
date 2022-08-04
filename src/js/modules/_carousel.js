@@ -1,4 +1,4 @@
-import $ from '../core';
+import $ from '../lib/core';
 
 $.prototype.carousel = function() {
     for (let i = 0; i < this.length; i++) {
@@ -81,4 +81,3 @@ $.prototype.carousel = function() {
     }
 };
 
-$('.carousel').carousel();

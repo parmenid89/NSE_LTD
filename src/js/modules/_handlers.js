@@ -1,4 +1,4 @@
-import $ from '../core';
+import $ from '../lib/core';
 
 $.prototype.on = function(eventName, callback) {
     if (!eventName || !callback) {

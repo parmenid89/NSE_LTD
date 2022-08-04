@@ -1,8 +1,5 @@
 import $ from './core';
-import './modules/_handlers';
-import './modules/_carousel';
-import './modules/_modal';
-import './modules/_effects';
-
+import '../modules/_handlers';
+import '../modules/_carousel';
 
 export default $;

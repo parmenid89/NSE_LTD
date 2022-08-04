@@ -49,12 +49,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core */ "./src/js/lib/core.js");
-/* harmony import */ var _modules_handlers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/_handlers */ "./src/js/lib/modules/_handlers.js");
-/* harmony import */ var _modules_carousel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/_carousel */ "./src/js/lib/modules/_carousel.js");
-/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/_modal */ "./src/js/lib/modules/_modal.js");
-/* harmony import */ var _modules_effects__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/_effects */ "./src/js/lib/modules/_effects.js");
-
-
+/* harmony import */ var _modules_handlers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/_handlers */ "./src/js/modules/_handlers.js");
+/* harmony import */ var _modules_carousel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modules/_carousel */ "./src/js/modules/_carousel.js");
 
 
 
@@ -62,17 +58,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/js/lib/modules/_carousel.js":
-/*!*****************************************!*\
-  !*** ./src/js/lib/modules/_carousel.js ***!
-  \*****************************************/
+/***/ "./src/js/modules/_carousel.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/_carousel.js ***!
+  \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./src/js/lib/core.js");
+/* harmony import */ var _lib_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../lib/core */ "./src/js/lib/core.js");
 
 
-_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.carousel = function () {
+_lib_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.carousel = function () {
   for (let i = 0; i < this.length; i++) {
     const width = window.getComputedStyle(this[i].querySelector('.carousel-inner')).width;
     const slides = this[i].querySelectorAll('.carousel-item');
@@ -84,7 +80,7 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.carousel = function () {
     });
     let offset = 0;
     let slideIndex = 0;
-    (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i].querySelector('[data-slide="next"]')).click(e => {
+    (0,_lib_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i].querySelector('[data-slide="next"]')).click(e => {
       e.preventDefault();
 
       if (offset == +width.replace(/\D/g, '') * (slides.length - 1)) {
@@ -108,7 +104,7 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.carousel = function () {
       });
       slides[slideIndex].classList.add('faded');
     });
-    (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i].querySelector('[data-slide="prev"]')).click(e => {
+    (0,_lib_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i].querySelector('[data-slide="prev"]')).click(e => {
       e.preventDefault();
 
       if (offset == 0) {
@@ -133,7 +129,7 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.carousel = function () {
       slides[slideIndex].classList.add('faded');
     });
     const sliderId = this[i].getAttribute('id');
-    (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(`#${sliderId} .carousel-indicators li`).click(e => {
+    (0,_lib_core__WEBPACK_IMPORTED_MODULE_0__["default"])(`#${sliderId} .carousel-indicators li`).click(e => {
       const slideTo = e.target.getAttribute('data-slide-to');
       slideIndex = slideTo;
       offset = +width.replace(/\D/g, '') * slideTo;
@@ -144,117 +140,19 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.carousel = function () {
   }
 };
 
-(0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])('.carousel').carousel();
-
 /***/ }),
 
-/***/ "./src/js/lib/modules/_effects.js":
-/*!****************************************!*\
-  !*** ./src/js/lib/modules/_effects.js ***!
-  \****************************************/
+/***/ "./src/js/modules/_handlers.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/_handlers.js ***!
+  \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./src/js/lib/core.js");
+/* harmony import */ var _lib_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../lib/core */ "./src/js/lib/core.js");
 
 
-_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.animateOverTime = function (duration, callback, fin) {
-  let timeStart;
-
-  function _animateOverTime(time) {
-    if (!timeStart) {
-      timeStart = time;
-    }
-
-    let timeElapsed = time - timeStart;
-    let complection = Math.min(timeElapsed / duration, 1);
-    callback(complection);
-
-    if (timeElapsed < duration) {
-      requestAnimationFrame(_animateOverTime);
-    } else {
-      if (typeof fin === 'function') {
-        fin();
-      }
-    }
-  }
-
-  return _animateOverTime;
-};
-
-_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeIn = function (dur, display, fin) {
-  for (let i = 0; i < this.length; i++) {
-    this[i].style.display = display || 'block';
-
-    const _fadeIn = complection => {
-      this[i].style.opacity = complection;
-    };
-
-    const ani = this.animateOverTime(dur, _fadeIn, fin);
-    requestAnimationFrame(ani);
-  }
-
-  return this;
-};
-
-_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeOut = function (dur, fin) {
-  for (let i = 0; i < this.length; i++) {
-    const _fadeOut = complection => {
-      this[i].style.opacity = 1 - complection;
-
-      if (complection === 1) {
-        this[i].style.display = 'none';
-      }
-    };
-
-    const ani = this.animateOverTime(dur, _fadeOut, fin);
-    requestAnimationFrame(ani);
-  }
-
-  return this;
-};
-
-_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.fadeToggle = function (dur, display, fin) {
-  for (let i = 0; i < this.length; i++) {
-    if (window.getComputedStyle(this[i]).display === 'none') {
-      this[i].style.display = display || 'block';
-
-      const _fadeIn = complection => {
-        this[i].style.opacity = complection;
-      };
-
-      const ani = this.animateOverTime(dur, _fadeIn, fin);
-      requestAnimationFrame(ani);
-    } else {
-      const _fadeOut = complection => {
-        this[i].style.opacity = 1 - complection;
-
-        if (complection === 1) {
-          this[i].style.display = 'none';
-        }
-      };
-
-      const ani = this.animateOverTime(dur, _fadeOut, fin);
-      requestAnimationFrame(ani);
-    }
-  }
-
-  return this;
-};
-
-/***/ }),
-
-/***/ "./src/js/lib/modules/_handlers.js":
-/*!*****************************************!*\
-  !*** ./src/js/lib/modules/_handlers.js ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./src/js/lib/core.js");
-
-
-_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.on = function (eventName, callback) {
+_lib_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.on = function (eventName, callback) {
   if (!eventName || !callback) {
     return this;
   }
@@ -266,7 +164,7 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.on = function (eventName
   return this;
 };
 
-_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.off = function (eventName, callback) {
+_lib_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.off = function (eventName, callback) {
   if (!eventName || !callback) {
     return this;
   }
@@ -278,7 +176,7 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.off = function (eventNam
   return this;
 };
 
-_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.click = function (handler) {
+_lib_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.click = function (handler) {
   for (let i = 0; i < this.length; i++) {
     if (handler) {
       this[i].addEventListener('click', handler);
@@ -292,10 +190,10 @@ _core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.click = function (handle
 
 /***/ }),
 
-/***/ "./src/js/lib/modules/_images.js":
-/*!***************************************!*\
-  !*** ./src/js/lib/modules/_images.js ***!
-  \***************************************/
+/***/ "./src/js/modules/_images.js":
+/*!***********************************!*\
+  !*** ./src/js/modules/_images.js ***!
+  \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -334,65 +232,10 @@ const images = () => {
 
 /***/ }),
 
-/***/ "./src/js/lib/modules/_modal.js":
+/***/ "./src/js/modules/_scrolling.js":
 /*!**************************************!*\
-  !*** ./src/js/lib/modules/_modal.js ***!
+  !*** ./src/js/modules/_scrolling.js ***!
   \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./src/js/lib/core.js");
-
-
-_core__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.modal = function (created) {
-  let marginOffset = window.innerWidth - document.body.offsetWidth + `px`;
-  const pageUp = document.querySelector('.pageup');
-
-  for (let i = 0; i < this.length; i++) {
-    const target = this[i].getAttribute('data-target');
-    (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(this[i]).click(e => {
-      e.preventDefault();
-      (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).fadeIn(200);
-      document.body.style.overflow = 'hidden';
-      document.body.style.paddingRight = marginOffset;
-      pageUp.classList.remove('fadeIn');
-    });
-    const closeElements = document.querySelectorAll(`${target} [data-close]`);
-    closeElements.forEach(elem => {
-      (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(elem).click(() => {
-        (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).fadeOut(200);
-        document.body.style.overflow = '';
-        document.body.style.paddingRight = `0px`;
-        pageUp.classList.add('fadeIn');
-
-        if (created) {
-          document.querySelector(target).remove();
-        }
-      });
-    });
-    (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).click(e => {
-      if (e.target.classList.contains('modal')) {
-        (0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])(target).fadeOut(200);
-        document.body.style.overflow = '';
-        document.body.style.paddingRight = `0px`;
-        pageUp.classList.add('fadeIn');
-
-        if (created) {
-          document.querySelector(target).remove();
-        }
-      }
-    });
-  }
-};
-
-(0,_core__WEBPACK_IMPORTED_MODULE_0__["default"])('[data-toggle="modal"]').modal();
-
-/***/ }),
-
-/***/ "./src/js/lib/modules/_scrolling.js":
-/*!******************************************!*\
-  !*** ./src/js/lib/modules/_scrolling.js ***!
-  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -553,8 +396,8 @@ var __webpack_exports__ = {};
   \************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib_lib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lib/lib */ "./src/js/lib/lib.js");
-/* harmony import */ var _lib_modules_images__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lib/modules/_images */ "./src/js/lib/modules/_images.js");
-/* harmony import */ var _lib_modules_scrolling__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lib/modules/_scrolling */ "./src/js/lib/modules/_scrolling.js");
+/* harmony import */ var _modules_images__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/_images */ "./src/js/modules/_images.js");
+/* harmony import */ var _modules_scrolling__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/_scrolling */ "./src/js/modules/_scrolling.js");
 
 
 
@@ -583,8 +426,9 @@ window.addEventListener('DOMContentLoaded', () => {
       hamburger.classList.remove('hamburger_active');
     }
   });
-  (0,_lib_modules_images__WEBPACK_IMPORTED_MODULE_1__["default"])();
-  (0,_lib_modules_scrolling__WEBPACK_IMPORTED_MODULE_2__["default"])('.pageup');
+  (0,_modules_images__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  (0,_modules_scrolling__WEBPACK_IMPORTED_MODULE_2__["default"])('.pageup');
+  (0,_lib_lib__WEBPACK_IMPORTED_MODULE_0__["default"])('.carousel').carousel();
 });
 })();
 
